@@ -1,0 +1,22 @@
+POST http://localhost:3000/signup
+
+Content-Type: 'application/json
+{
+    "name":"Lazziza",
+    "password":"password",
+    "email":"salo@sskajs.com"
+}
+
+### sign in as existing user
+
+POST http://localhost:3000/users/signin
+
+Content-Type: 'application/json
+
+{
+    "name":"Akbar",
+    "email":"kjkjjkj@sjhd.com"
+}
+
+
+
