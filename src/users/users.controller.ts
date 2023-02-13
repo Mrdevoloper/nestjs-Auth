@@ -1,6 +1,5 @@
 import { Body, Controller, Post, Get, Query, Param, NotFoundException, UseGuards, Delete, Session, Patch } from '@nestjs/common';
-import { APP_INTERCEPTOR } from '@nestjs/core';
-import { Serialize } from 'src/interceptors/serialize.interceptor';
+import { Serialize } from '../interceptors/serialize.interceptor';
 import { AuthService } from './auth.service';
 import { CurrentUser } from './decorators/current-user.decorstor';
 import { CreateUserDto } from './dtos/create-user-dto';
@@ -10,7 +9,6 @@ import { AuthGuard } from './Guards/auth.guard';
 import { User } from './users.entity';
 import { UsersService } from './users.service';
 
-
 @Controller()
 @Serialize(UserDto)
 export class UsersController {
@@ -18,7 +16,6 @@ export class UsersController {
         private usersService: UsersService,
         private authService: AuthService
     ) { }
-
     @Get('/whoami')
     @UseGuards(AuthGuard)
     whoAmI(@CurrentUser() user: User) {
@@ -51,7 +48,6 @@ export class UsersController {
         return users
     }
 
-
     @Get('/:id')
     async findUser(@Param('id') id: string) {
         const user = await this.usersService.findOne(parseInt(id));
@@ -60,7 +56,6 @@ export class UsersController {
         }
         return user;
     }
-
 
     @Delete('/:id')
     removeUser(@Param('id') id: string) {

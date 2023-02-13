@@ -14,8 +14,9 @@ POST http://localhost:3000/users/signin
 Content-Type: 'application/json
 
 {
-    "name":"Akbar",
-    "email":"kjkjjkj@sjhd.com"
+    "name":"Lazziza",
+    "password":"password",
+    "email":"salo@sskajs.com"
 }
 
 
